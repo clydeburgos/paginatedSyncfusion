@@ -1,0 +1,15 @@
+<div class="d-flex">
+  <input type="search" [(ngModel)]="searchKeyword"  placeholder="Search..." class="form-control w-50" /> &nbsp;
+  <button type="button" class="btn btn-sm btn-primary" (click)="search()">Search</button>
+</div>
+<br />
+<ejs-grid id="emailTemplatesServerBasedGrid"
+[dataSource]="emailTemplatesData | async" [childGrid]="childGrid" [allowPaging]="true" [allowSorting]="true" [pageSettings]="pageOptions"
+(dataStateChange)="dataStateChange($event)"
+ #emailTemplatesServerBasedGrid>
+  <e-columns>
+      <e-column field='emailLabel' headerText='Email'></e-column>
+      <e-column field='fromAddress' headerText='From Email'></e-column>
+      <e-column field='dateUpdated' headerText='Date Updated' [format]="dateFormat" type="date" textAlign='Right'></e-column>
+  </e-columns>
+</ejs-grid>
